@@ -1,9 +1,20 @@
-# Welcome to Deep Learning in Neuroscience course for FENS 2022 Summer School 2022!
-Here you will find a collection of code and links for the Deep Learning in Neuroscience taught by [Edgar Y. Walker](https://eywalkerlab.com), as part of the FENS 2022 Summer School.
+This is a Jupyter notebook accompanying the hands-on workshop on machine learning, taught as part of the 2022 FENS Summer School on 'Artificial and natural computations for sensory perception: what is the link?'. This notebook as well as any other relevant information can be found in the GitHub repository!
+
+In this workshop, we will learn how deep learning is leveraged in neuroscience, specifically in building models of neuronal responses to complex sensory inputs such as natural images as part of system identification. We will get our hands dirty by taking real neuronal responses recorded from mouse primary visual cortex (V1) as the mouse observed natural images, developing models to predict these responses from the images.
+
+By the end of this workshop, you will gain basic familiarity in developing deep learning models to predict responses of 1000s of neurons to natural images, ready for you to embark on group projects!
+
+# Welcome to the hands-on workshop on machine learning at 2022 FENS Summer School!
+Here you will find a collection of code and links for the hands-on workshop on machine learning in neuroscience taught by [Edgar Y. Walker](https://eywalkerlab.com), as part of the  [FENS Summer School on 'Artificial and natural computations for sensory perception: what is the link?'](https://www.fens.org/news-activities/fens-and-societies-calendar/training-event/fens-summer-school-on-artificial-and-natural-computations-for-sensory-perception-what-is-the-link).
 
 
 ## Most importantly, you can launch the Jupyter notebook for the workshop in Colab by clicking on the badge below!
+For the notebook with exercises:
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/walkerlab/FENS-2022/blob/main/notebooks/Deep-Learning-in-Neuroscience.ipynb)
+
+For the version with all exercises completed:
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/walkerlab/FENS-2022/blob/main/notebooks/Filled_Deep-Learning-in-Neuroscience.ipynb)
+
 
 ## How to run on your own setup without Colab
 If you prefer to run this on your own machine and without using Colab, you can do so by using this repository content.
