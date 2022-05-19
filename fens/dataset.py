@@ -1,6 +1,3 @@
-from collections import OrderedDict
-from itertools import zip_longest
-
 import numpy as np
 from neuralpredictors.data.datasets import FileTreeDataset
 from neuralpredictors.data.samplers import SubsetSequentialSampler
@@ -27,7 +24,7 @@ def load_dataset(
     image_n=None,
     image_base_seed=None,
     get_key=False,
-    cuda=True,
+    cuda=False,
     normalize=True,
     exclude="images",
     return_test_sampler=False,
@@ -39,8 +36,8 @@ def load_dataset(
     Args:
         path (str): path for the dataset
         batch_size (int): batch size.
-        areas (list, optional): the visual area.
-        layers (list, optional): the layer from visual area.
+        areas (list, optional): the visual area (e.g., V1, LM).
+        layers (list, optional): the layer from visual area (e.g., L2/3, L5).
         tier (str, optional): tier is a placeholder to specify which set of images to pick for train, val, and test loader.
         neuron_ids (list, optional): select neurons by their ids.
         neuron_n (int, optional): number of neurons to select randomly. Can not be set together with neuron_ids
@@ -67,6 +64,7 @@ def load_dataset(
     assert any(
         [image_ids is None, all([image_n is None, image_base_seed is None])]
     ), "image_ids can not be set at the same time with any other image selection criteria"
+
     assert any(
         [
             neuron_ids is None,
@@ -81,6 +79,7 @@ def load_dataset(
             ),
         ]
     ), "neuron_ids can not be set at the same time with any other neuron selection criteria"
+
     assert any(
         [exclude_neuron_n == 0, neuron_base_seed is not None]
     ), "neuron_base_seed must be set when exclude_neuron_n is not 0"
