@@ -15,6 +15,7 @@ def train_model(
     model,
     dataloader,
     seed=None,
+    loss=None,
     avg_loss=False,
     scale_loss=True,
     stop_function="get_correlations",
@@ -42,7 +43,8 @@ def train_model(
         model: model to be trained
         dataloaders: dataloaders containing the data to train the model with
         seed: random seed
-        avg_loss: whether to average (or sum) the loss over a batch
+        loss: Criterion module. If None (default), use PoissonLoss
+        avg_loss: whether to average (or sum) the loss over a batch. Only used for PoissonLoss instantiation when `loss` is None
         scale_loss: whether to scale the loss according to the size of the dataset
         loss_function: loss function to use
         stop_function: the function (metric) that is used to determine the end of the training in early stopping
@@ -67,11 +69,22 @@ def train_model(
     """
 
     ##### Model training ####################################################################################################
+    # check if CUDA is available
+    if "cuda" in device and not torch.cuda.is_available():
+        print("CUDA is not available! Switching back to CPU")
+        device = "cpu"
+
     model.to(device)
     if seed is not None:
         set_random_seed(seed)
     model.train()
-    criterion = PoissonLoss(avg=avg_loss)
+
+    # instantiate the loss
+    if loss is None:
+        loss = PoissonLoss(avg=avg_loss)
+    criterion = loss
+    # set criterion to the target
+    criterion.to(device)
 
     def full_objective(model, dataloader, images, responses, *args):
 
