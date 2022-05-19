@@ -1,9 +1,9 @@
-# Welcome to Deep Learning in Neuroscience course for Lviv Data Science Summer School 2021!
-Here you will find a collection of code and links for the [Deep Learning in Neuroscience](https://apps.ucu.edu.ua/en/summerschool-ds/course-list/deep-learning-in-neuroscience/) taught by [Edgar Y. Walker](https://edgarwalker.com), as part of the [Lviv Data Science Summer School 2021](https://apps.ucu.edu.ua/en/summerschool-ds/).
+# Welcome to Deep Learning in Neuroscience course for FENS 2022 Summer School 2022!
+Here you will find a collection of code and links for the Deep Learning in Neuroscience taught by [Edgar Y. Walker](https://eywalkerlab.com), as part of the FENS 2022 Summer School.
 
 
 ## Most importantly, you can launch the Jupyter notebook for the workshop in Colab by clicking on the badge below!
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/eywalker/Lviv-2021/blob/main/notebooks/Deep-Learning-in-Neuroscience.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/walkerlab/FENS-2022/blob/main/notebooks/Deep-Learning-in-Neuroscience.ipynb)
 
 ## How to run on your own setup without Colab
 If you prefer to run this on your own machine and without using Colab, you can do so by using this repository content.
@@ -22,5 +22,5 @@ You can then navigate to http://localhost:8888 in your browser to access the Jup
 If you prefer to not use Docker, then launch a Jupyter server and navigate to the Jupyter notebook `Deep-Learning-in-Neuroscience.ipynb` found in `notebooks` directory. You may have to adjust a few paths for your data download.
 
 ## Acknowledgements
-Big thanks to Zhuokun Ding from Baylor College of Medicine and Suhas Shrinivasan from the University of Göttigen for their immense help in preparing and testing the course material!
+Big thanks to Daniel Sitonic in my lab, Zhuokun Ding from Baylor College of Medicine and Suhas Shrinivasan from the University of Göttigen for their immense help in preparing and testing the course material!
 

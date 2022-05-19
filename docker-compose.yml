@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - .:/src/LVIV-2021
+      - .:/src/FENS-2022
       - ./notebooks:/content
       - ./data:/content/data
       - ./trained_nets:/content/trained_nets
