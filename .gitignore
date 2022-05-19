@@ -1,7 +1,13 @@
+# Exclude data directories
 Lurz2020
 dataset.zip
 
+# Exclude temporary files from editors and OS
+*~
+~*
+.vscode
 .DS_Store
+
 # Exclude commiting data directory
 data/
 trained_nets/
