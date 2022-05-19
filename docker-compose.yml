@@ -14,10 +14,3 @@ services:
     - GIT_SSL_NO_VERIFY=1
     ports:
       - "${JUPYTER_PORT:-8888}:8888"
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: 1
-              capabilities: [gpu]

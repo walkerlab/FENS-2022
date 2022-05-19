@@ -1,12 +1,8 @@
-FROM sinzlab/pytorch:v3.8-torch1.7.0-cuda11.0-dj0.12.7
-
-#RUN cd /src; \
-#    git clone -b v0.0 https://github.com/sinzlab/neuralpredictors; \
-#    pip3 install -e /src/neuralpredictors
+FROM walkerlab/pytorch:python3.8-torch1.10.0-cuda11.3.1-dj0.12.7
 
 # copy this project and install
-COPY . /src/LVIV-2021
-RUN pip install -e /src/LVIV-2021
+COPY . /src/FENS-2022
+RUN pip install -e /src/FENS-2022
 
 # Disable password system for Jupyter Notebook
 ENV JUPYTER_PASSWORD=''
