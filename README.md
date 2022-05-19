@@ -1,9 +1,3 @@
-This is a Jupyter notebook accompanying the hands-on workshop on machine learning, taught as part of the 2022 FENS Summer School on 'Artificial and natural computations for sensory perception: what is the link?'. This notebook as well as any other relevant information can be found in the GitHub repository!
-
-In this workshop, we will learn how deep learning is leveraged in neuroscience, specifically in building models of neuronal responses to complex sensory inputs such as natural images as part of system identification. We will get our hands dirty by taking real neuronal responses recorded from mouse primary visual cortex (V1) as the mouse observed natural images, developing models to predict these responses from the images.
-
-By the end of this workshop, you will gain basic familiarity in developing deep learning models to predict responses of 1000s of neurons to natural images, ready for you to embark on group projects!
-
 # Welcome to the hands-on workshop on machine learning at 2022 FENS Summer School!
 Here you will find a collection of code and links for the hands-on workshop on machine learning in neuroscience taught by [Edgar Y. Walker](https://eywalkerlab.com), as part of the  [FENS Summer School on 'Artificial and natural computations for sensory perception: what is the link?'](https://www.fens.org/news-activities/fens-and-societies-calendar/training-event/fens-summer-school-on-artificial-and-natural-computations-for-sensory-perception-what-is-the-link).
 
