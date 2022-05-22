@@ -10,7 +10,6 @@ dataset.zip
 
 # Exclude commiting data directory
 data/
-trained_nets/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
