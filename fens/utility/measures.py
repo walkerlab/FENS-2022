@@ -129,7 +129,7 @@ def get_correlations(model, dataloader, device="cpu", per_neuron=True, **kwargs)
         if np.any(np.isnan(correlations)):
             warnings.warn(
                 "{}% NaNs , NaNs will be set to Zero.".format(
-                    np.isnan(correlations[k]).mean() * 100
+                    np.isnan(correlations).mean() * 100
                 )
             )
         correlations[np.isnan(correlations)] = 0

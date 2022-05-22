@@ -4,6 +4,7 @@ import torch
 from tqdm import tqdm
 
 from neuralpredictors.measures import PoissonLoss
+from torch.nn import PoissonNLLLoss
 from neuralpredictors.training import early_stopping, MultipleObjectiveTracker
 from .utility.nn_helper import set_random_seed
 
@@ -13,7 +14,7 @@ from .utility.measures import get_correlations, get_poisson_loss
 
 def train_model(
     model,
-    dataloader,
+    dataloaders,
     seed=None,
     loss=None,
     avg_loss=False,
@@ -81,7 +82,8 @@ def train_model(
 
     # instantiate the loss
     if loss is None:
-        loss = PoissonLoss(avg=avg_loss)
+        # PoissonLoss
+        loss = PoissonNLLLoss(log_input=False, reduction="mean" if avg_loss else "sum")
     criterion = loss
     # set criterion to the target
     criterion.to(device)
@@ -101,12 +103,12 @@ def train_model(
 
     stop_closure = partial(
         get_correlations,
-        dataloader=dataloader["validation"],
+        dataloader=dataloaders["validation"],
         device=device,
         per_neuron=False,
     )
 
-    n_iterations = len(dataloader["train"])
+    n_iterations = len(dataloaders["train"])
 
     optimizer = torch.optim.Adam(model.parameters(), lr=lr_init)
     scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
@@ -128,14 +130,14 @@ def train_model(
             correlation=partial(
                 get_correlations,
                 model=model,
-                dataloader=dataloader["validation"],
+                dataloader=dataloaders["validation"],
                 device=device,
                 per_neuron=False,
             ),
             poisson_loss=partial(
                 get_poisson_loss,
                 model,
-                dataloader["validation"],
+                dataloaders["validation"],
                 device=device,
                 per_neuron=False,
             ),
@@ -175,12 +177,12 @@ def train_model(
         # train over batches
         optimizer.zero_grad()
         for batch_no, data in tqdm(
-            enumerate(dataloader["train"]),
+            enumerate(dataloaders["train"]),
             total=n_iterations,
             desc="Epoch {}".format(epoch),
         ):
 
-            loss = full_objective(model, dataloader["train"], *data)
+            loss = full_objective(model, dataloaders["train"], *data)
             loss.backward()
             if (batch_no + 1) % optim_step_count == 0:
                 optimizer.step()
@@ -192,10 +194,10 @@ def train_model(
 
     # Compute avg validation and test correlation
     validation_correlation = get_correlations(
-        model, dataloader["validation"], device=device, as_dict=False, per_neuron=False
+        model, dataloaders["validation"], device=device, as_dict=False, per_neuron=False
     )
     test_correlation = get_correlations(
-        model, dataloader["test"], device=device, as_dict=False, per_neuron=False
+        model, dataloaders["test"], device=device, as_dict=False, per_neuron=False
     )
 
     # return the whole tracker output as a dict
