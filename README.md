@@ -3,10 +3,10 @@ Here you will find a collection of code and links for the hands-on workshop on m
 
 
 ## Most importantly, you can launch the Jupyter notebook for the workshop in Colab by clicking on the badge below!
-For the notebook with exercises:
+Student's copy of the notebook with exercises to be completed:
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/walkerlab/FENS-2022/blob/main/notebooks/Deep-Learning-in-Neuroscience.ipynb)
 
-For the version with all exercises completed:
+Instructor's copy with all exercises answered:
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/walkerlab/FENS-2022/blob/main/notebooks/Filled_Deep-Learning-in-Neuroscience.ipynb)
 
 
